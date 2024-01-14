@@ -1,0 +1,36 @@
+To configure your GitHub account so that you can create a new repository using the command line, follow these steps:
+1. Generate a Personal Access Token (PAT) on GitHub:
+Login to GitHub:Log in to your GitHub account.
+Access Personal Access Tokens:
+Click on your profile picture in the top right corner.
+Go to "Settings."
+In the left sidebar, click on "Developer settings."
+Click on "Personal access tokens."
+Generate a Token:
+Click on the "Generate token" button.
+Give your token a name and select the scopes (permissions) you need. For creating repositories, you at least need the "repo" scope.
+Click on the "Generate token" button at the bottom.
+Copy the Token:
+Copy the generated token immediately. You won't be able to see it again.
+2. Configure Git to Use the Token:
+Now that you have your Personal Access Token, you need to configure Git on your local machine to use it.
+Open a Terminal or Command Prompt:Open the terminal or command prompt on your local machine.
+Configure Git with Your Token:Run the following command, replacing "YOUR-PERSONAL-ACCESS-TOKEN" with the token you generated:
+ 
+Replace username with your GitHub username.
+bashCopy codegit config --global credential.helper storeecho "https://github.com/username:YOUR-PERSONAL-ACCESS-TOKEN" > ~/.git-credentials
+3. Test the Configuration:
+Now, you can test whether the configuration is working by creating a new repository using the command line.
+Create a New Directory:Create a new directory for your project:
+bashCopy codemkdir my-new-repocd my-new-repo
+Initialize a Git Repository:Run the following command to initialize a new Git repository:
+bashCopy codegit init
+Create a README File:Create a README file or add any other files to your project.
+Add, Commit, and Push:Add your files, commit your changes, and push them to GitHub:
+ 
+Replace username with your GitHub username.
+bashCopy codegit add .
+git commit -m "Initial commit"git remote add origin https://github.com/username/my-new-repo.git
+git push -u origin master
+Enter Your GitHub Credentials:The first time you push, Git will prompt you for your GitHub username and password. Enter your username, and for the password, use the Personal Access Token you generated.
+Now, you should be able to create new repositories on GitHub from the command line without entering your credentials each time. Keep your Personal Access Token secure and do not share it publicly. If you ever need to revoke the token, you can do so in your GitHub settings.
